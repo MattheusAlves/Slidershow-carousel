@@ -17,7 +17,7 @@ body{
 }
 .navigation{
     position:absolute;
-    bottom:20px;
+    bottom:10px;
     left:50%;
     transform: translateX(-50%);
     display: flex;
@@ -52,9 +52,11 @@ input[name="r"]{
     height: 100%;
 }
 #r1:checked ~ .s1{
+    
     margin-left:0;
 }
-#r2:checked ~ .s1{
+#r2:checked ~ .s1 {
+    
     margin-left:-20%;
 }
 #r3:checked ~ .s1{

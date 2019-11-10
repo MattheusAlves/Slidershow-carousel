@@ -7,10 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Document</title>
+    <script type='text/javascript'>
+        window.onload = function () {
+            let navigationBar = document.querySelectorAll(".bar")
+            for (let bar of navigationBar) {
+                bar.addEventListener('click', function (event) {
+                    for (let bar of navigationBar) {
+                        bar.style.background = ''
+                    }
+                    bar.style.background = '#fff'
+                })
+            }
+            let i = 1;
+            setInterval(function () {
+                const radios = document.querySelectorAll("[name='r']")
+                radios[i].checked = true
+                for (let radio of radios) {
+                    if (radio.checked === true) {
+                        const navigationBar = document.querySelectorAll(`[name=${radio.id}]`)
+                        // navigationBar[0].style.background = '#fff'
+                        navigationBar[0].dispatchEvent(new Event('click'))
+
+                    }
+                }
+                i++;
+                if (radios.length === i) { i = 0 }
+
+            }, 3000)
+
+        }
+    </script>
 </head>
 
 <body>
-    <diwv class="slidershow middle">
+    <div class="slidershow middle">
 
         <div class="slides">
             <input type="radio" name="r" id="r1" checked>
@@ -33,11 +63,11 @@
         </div>
 
         <div class="navigation">
-            <label for="r1" class="bar"></label>
-            <label for="r2" class="bar"></label>
-            <label for="r3" class="bar"></label>
-            <label for="r4" class="bar"></label>
-            <label for="r5" class="bar"></label>
+            <label for="r1" name="r1" class="bar"></label>
+            <label for="r2" name="r2" class="bar"></label>
+            <label for="r3" name="r3" class="bar"></label>
+            <label for="r4" name="r4" class="bar"></label>
+            <label for="r5" name="r5" class="bar"></label>
         </div>
     </div>
 </body>
